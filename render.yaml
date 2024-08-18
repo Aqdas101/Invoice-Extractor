@@ -2,8 +2,6 @@ services:
   - type: web
     name: my-app
     env: python
-    runtime:
-      version: '3.9'
-    scripts:
-      - apt-get update && apt-get install -y tesseract-ocr
-    start: python app.py
+    plan: free # Specify your plan (optional)
+    buildCommand: apt-get update && apt-get install -y tesseract-ocr && pip install -r requirements.txt
+    startCommand: streamlit run app.py
