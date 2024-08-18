@@ -1,20 +1,18 @@
-# Exported from Render on 2024-08-18T15:12:53Z
 services:
-- type: web
-  name: Invoice-Extractor
-  runtime: python
-  repo: https://github.com/Aqdas101/Invoice-Extractor
-  plan: free
-  dockerfilePath: ./Dockerfile
-  envVars:
-  - key: PORT
-    sync: false
-  - key: render.yaml
-    sync: false
-  - key: OPENAI_API_KEY
-    sync: false
-  region: oregon
-  buildCommand: pip install -r requirements.txt
-  startCommand: streamlit run app.py
-  pullRequestPreviewsEnabled: false
+  - type: web
+    name: Invoice-Extractor
+    runtime: python
+    repo: https://github.com/Aqdas101/Invoice-Extractor
+    plan: free
+    buildCommand: |
+      apt-get update && apt-get install -y tesseract-ocr
+      pip install -r requirements.txt
+    startCommand: streamlit run app.py
+    envVars:
+      - key: PORT
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+    region: oregon
+    pullRequestPreviewsEnabled: false
 version: "1"
