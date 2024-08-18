@@ -1,8 +1,0 @@
-services:
-  - type: web
-    name: my-app
-    env: python
-    plan: free # Specify your plan (optional)
-    dockerfilePath: ./Dockerfile
-    buildCommand: apt-get update && apt-get install -y tesseract-ocr && pip install -r requirements.txt
-    startCommand: streamlit run app.py
