@@ -29,4 +29,3 @@ def extractor(text):
     task_details = TaskExtractor(invoice=text).extract()
     assert isinstance(task_details, TaskDetails)
     return task_details
-
