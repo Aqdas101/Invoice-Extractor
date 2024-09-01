@@ -17,6 +17,3 @@ def pdf_to_image(pdf_files, dpi=300):
             
         pdf_images.append(images)
     return pdf_images
-
-
-
